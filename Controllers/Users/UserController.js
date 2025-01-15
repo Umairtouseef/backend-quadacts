@@ -80,8 +80,8 @@ const logout = async (req, res, next) => {
 };
 
 const checkAuth = async (req, res) => {
-  console.log("Session Cookies:", req.cookies);  // Log cookies to verify they are sent
-  console.log("User Object:", req.user);  // Log user object to verify the session is being authenticated
+  console.log("Session Cookies:", req.cookies);  
+  console.log("User Object:", req.user); 
 
   console.log("checkAuth",req.user)
   if (req.user) {

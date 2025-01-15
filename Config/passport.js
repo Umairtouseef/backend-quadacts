@@ -4,18 +4,20 @@ const LocalStrategy = require("passport-local").Strategy;
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const User = require("../modals/User");
+const { cookieExtractor } = require("../services/common");
 const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 const passportConfig = () => {
+  var opts = {};
+  opts.jwtFromRequest = cookieExtractor;
+  opts.secretOrKey = process.env.JWT_SECRET_KEY;
+
   passport.use(
     "jwt",
     new JwtStrategy(
-      {
-        secretOrKey: JWT_SECRET,
-        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      },
+      opts,
       async (payload, done) => {
-        console.log("jwt0")
+        console.log("jwtFromRequest",jwtFromRequest)
 
         try {
           console.log("jwt")
