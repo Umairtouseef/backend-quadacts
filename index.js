@@ -23,7 +23,7 @@ app.get("*", (req, res) => res.sendFile(path.resolve("build", "index.html")));
 
 
 // Start the server
-const PORT =  "5001";
+const PORT =  "https://templte-backend-2f227f8c9c46.herokuapp.com/";
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
