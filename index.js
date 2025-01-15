@@ -18,8 +18,8 @@ const startApp = async () => {
 startApp();
 
 // Optional static file serving, if needed for frontend
-app.use(express.static(path.resolve(__dirname, 'build')));
-app.get("*", (req, res) => res.sendFile(path.resolve("build", "index.html")));
+// app.use(express.static(path.resolve(__dirname, 'build')));
+// app.get("*", (req, res) => res.sendFile(path.resolve("build", "index.html")));
 
 
 // Start the server
