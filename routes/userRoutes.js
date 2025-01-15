@@ -9,18 +9,6 @@ router.post('/signup', userController.createUser);
 router.post('/login', passport.authenticate('local'), userController.loginUser);
 router.get('/profile', passport.authenticate("jwt"), userController.checkAuth);
 
-router.get('/dashboardd', (req, res) => {
-    console.log("Session ID:", req.sessionID);
-    console.log("Session Cookie:", req.cookies['connect.sid']);  // Log the session cookie
-    console.log("User from session:", req.user);  // Should be populated if session is working correctly
-    
-    if (req.user) {
-      res.json(req.user);
-    } else {
-      res.status(401).send('Unauthorized');
-    }
-  });
-  
   
 router.get('/protected-route',sessionAuth, userController.checkAuth, (req, res) => {
     res.status(200).json({
