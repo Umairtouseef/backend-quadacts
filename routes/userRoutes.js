@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/signup', userController.createUser);
 router.post('/login', passport.authenticate('local'), userController.loginUser);
-router.get('/protected-route', passport.authenticate("jwt"), userController.checkAuth);
+router.get('/protected-route',  userController.checkAuth);
 
   
 // router.get('/protected-route',sessionAuth, userController.checkAuth, (req, res) => {
